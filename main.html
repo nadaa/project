@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+   <link rel="stylesheet" type="text/css" href="styles.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"> </script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"> </script>
+
+  <script src="jquery.js">   </script>
+  <script  src="scripts.js"> </script>
+
+ <title>Project</title>
+
+</head>
+<body>
+
+
+<body>
+
+
+<div class="container-fluid">
+
+<h1 style="text-align:center"> Title of Project</h1>
+
+<div id ="maincont" class="well mx-auto">
+
+<div style="text-align:center">
+
+<!-- <a href='#divcat'><img class="img-main" style="width:400px;height:300px" src="https://i.ytimg.com/vi/i0LWo0jrTis/hqdefault.jpg"></a>
+
+ -->
+
+<button class="catBtn"> History</button>
+<button class="catBtn"> Nature</button>
+<button class="catBtn"> Modern</button>
+
+
+
+<!-- <a href='#divcat'><img class="img-main" style="width:400px;height:300px" src="http://www.investiniran.ir/OIETA_content/media/image/2013/08/2922_orig.jpg"> </a>
+
+<a href='#divcat'><img class="img-main" style="width:400px;height:300px" src="https://s-media-cache-ak0.pinimg.com/originals/0a/90/19/0a90196fd80e19d4e4db3a8656770543.jpg"></a>
+ -->
+
+</div>
+
+</div>
+
+
+<div id="divcat" class="well" style="margin:auto" id="cat">
+
+
+
+</div>
+
+</div>
+
+
+
+<script>
+
+$(document).ready(function(){
+$('.catBtn').on('click',function(){
+var btn=$(this).text().trim();
+//console.log(typeof(btn));
+//var selectedcat;
+$('#divcat').html('');
+if (btn==='History')
+{ //selectedcat=historical;
+	for (var i=0;i<historical.images.length;i++){
+		var img=$('<img src='+historical.images[i]+'>')
+
+		$('#divcat').append(img)
+	}
+
+	}
+
+
+
+
+//console.log(btn.length)
+
+
+//console.log(btn)
+//$('#divcat').html()
+//var $newDiv= $('<div></div>');
+//$newDiv.text()
+//$newDiv.append('body')
+
+})})
+
+
+
+</script>
+
+
+
+
+</body>
+</html>
