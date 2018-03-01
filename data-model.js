@@ -1,5 +1,5 @@
 
-function objectPlace(place,image,country,info,category)
+function objectPlace(place,image,country,info,category,rank)
 {
 	var obj={};
 	//properties
@@ -8,8 +8,11 @@ function objectPlace(place,image,country,info,category)
 	obj.country=country;
 	obj.info=info;
 	obj.category=category;
+	obj.rank=0;
 
 	// methods
+    obj.addRank=addRank;
+    obj.getRank=getRank;
 
 	return obj
 	
@@ -25,7 +28,15 @@ function getCategoryList(cat){
 	return catList;
 }
 
+function addRank(rank){
+	this.rank+=rank;
 
+}
+
+function getRank(){
+
+	return this.rank;
+}
 
 
 

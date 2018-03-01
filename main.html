@@ -44,6 +44,7 @@
   <script>
   $(document).ready(function(){
     var cats;
+    var index // this is to store the clicked image index to use it in the text box to send the rank
     $('.catBtn').on('click',function(){
       shuffle()
       var btn=$(this).text().trim().toLowerCase();
@@ -61,6 +62,8 @@
 
         $('#divcat').append(img);
 
+        //$('#divcat').after('<input type="text">')
+
         $('#divinfo').append(divinfo);
         
 
@@ -75,14 +78,39 @@ $('#divcat').on('click',function(event){
   var target = $( event.target );
   if ( target.is( "img")) 
   {var placeObj=cats[target.attr('id')-1];
+  index=target.attr('id');
 
-  $('#divinfo').html('<div>'+placeObj.place+', '+placeObj.country+'</div><br> <div>'+ placeObj.info+'</div>').css({'text-align':'center','font-size':24})
+  $('#divinfo').html('<div>'+placeObj.place+', '+placeObj.country+'</div><br> <div>'+ placeObj.info+'</div><br><br>').css({'text-align':'center','font-size':24})
 
+ 
+  
+  $('#divinfo').append('<div> Add your rank <input id="rank" type="text"><button id="submit">Submit</button> </div>')
+
+
+  
   
  // $('#divinfo').text(placeObj.place+', '+placeObj.country+'\n'+placeObj.info).css({'text-align':'center','font-size':24})
  ;}
 
 });
+
+
+$('#divinfo').on('click',function(){
+
+var target = $( event.target );
+  if ( target.is('#submit'))
+  {  
+
+  var rankValue=Number($('#rank').val());
+  cats[index-1].addRank(rankValue);
+  alert(" your rank is "+cats[index-1].getRank())
+
+  }
+//console.log(rankValue)
+// call function to add the rank assciated with the clicked place
+
+})
+
 
   });
 
