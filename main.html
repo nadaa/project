@@ -19,6 +19,8 @@
 
 <div id="topdiv">
   <h1 id="title"> Discover the World</h1>
+  <p> WHERE DO YOU PREFER TO SPEND YOUR VACATION? </p>
+
 </div>
 
 <div id ="maincont">
@@ -29,38 +31,62 @@
     </div>
 </div>
 
- <div id="divcat" class="well">
+ <div id="divcat">
   </div>
 
-<div id="divinfo" class="well">
+<div id="divinfo">
   </div>
 
+  
   </div>
  
 
   <script>
   $(document).ready(function(){
-  $('.catBtn').on('click',function(){
-    shuffle()
-    var btn=$(this).text().trim().toLowerCase();
-    var infos='';
-    $('#divcat').html('');
-    $('#divinfo').html('');
-    var cats=getCategoryList(btn);
-      for (var i=0;i<cats.length;i++){
-        var j=i+1;
-       // var img=$('<div id=divcol'+j+'><img src='+cats[i].image+'></div>')
-       var img=$('<img src='+cats[i].image+'>') 
-       var place=cats[i].place;
-       var country=cats[i].country;
-       infos=place+', '+country+', '
-       var divinfo=$('<div>'+infos+'<span><a href='+cats[i].info+' target=_blank>For info</a></span></div>');
+    var cats;
+    $('.catBtn').on('click',function(){
+      shuffle()
+      var btn=$(this).text().trim().toLowerCase();
+      // var infos='';
+      var img;
+      $('#divcat').html('');
+      $('#divinfo').html('');
+      cats=getCategoryList(btn);
+        for (var i=0;i<cats.length;i++){
+          var j=i+1;
+         // var img=$('<div id=divcol'+j+'><img src='+cats[i].image+'></div>')
+         img=$('<img id='+j+' src='+cats[i].image+'>') 
+        
+                 // var divinfo=$('<div>'+infos+'<span><a href='+cats[i].info+' target=_blank>For info</a></span></div>');
 
         $('#divcat').append(img);
-        $('#divinfo').append(divinfo);
-    }
 
-}) })
+        $('#divinfo').append(divinfo);
+        
+
+    }
+      
+
+});
+
+
+$('#divcat').on('click',function(event){
+
+  var target = $( event.target );
+  if ( target.is( "img")) 
+  {var placeObj=cats[target.attr('id')-1];
+
+  $('#divinfo').html('<div>'+placeObj.place+', '+placeObj.country+'</div><br> <div>'+ placeObj.info+'</div>').css({'text-align':'center','font-size':24})
+
+  
+ // $('#divinfo').text(placeObj.place+', '+placeObj.country+'\n'+placeObj.info).css({'text-align':'center','font-size':24})
+ ;}
+
+});
+
+  });
+
+
 </script>
 
 
